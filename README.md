@@ -18,23 +18,32 @@ To install the package, use pip:
 
 The package provides the following modules for interacting with UKG Workforce Ready:
 
-- `authenticate`: Contains functions for authentication using API keys
+- `authenticate`: Contains functions and classes for authentication using API keys
 - `download`: Contains functions for downloading data from UKG Workforce Ready
 - `write`: Contains functions for writing data to UKG Workforce Ready
 
 Here is an example of how to use the package:
 
 ```python
-import ukgwr-api-tools
+from ukgwr-api-tools import authentication, download_reports
 
-# Authenticate with UKG Workforce Ready
-ukgwr-api-tools.authenticate.authenticate_ukgwr()
+# Set your kronos environment with an endpoint class object
+kronos_endpoint = kronos_endpoint(
+    base_url = "https://prefix.saashr.com/ta/rest/",
+    api_key = "your_api_key",
+    username = "your_username",
+    password = "your_password",
+    company = "1234567"
+)
 
-# Download data from UKG Workforce Ready
-data = ukgwr-api-tools.download.download_data()
+# Pass your endpoint to the authentication function and return your credentials
+kronos_credentials = authentication.authenticate(kronos_endpoint)
 
-# Write data to UKG Workforce Ready
-ukgwr-api-tools.write.write_data(data)
+# Find the report(s) you want to download
+report_name = download_reports.get_report_names(kronos_endpoint, kronos_credentials, type="Saved")
+
+# Then download the named report
+report = download_reports.get_report(kronos_endpoint, kronos_credentials, report_name, report_scope="saved")
 ```
 
 ## Contributing

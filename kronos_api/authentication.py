@@ -42,6 +42,17 @@ class kronos_credentials:
     def __init__(self, token: str, expiry_time: float):
         self._token = token
         self.expiry_time = expiry_time
+    
+    def print(self):
+        print(f"Token: {self._token}, Expiry Time: {self.expiry_time}")
+        
+    def create_blank(self):
+        self.token = ""
+        self.expiry_time = 0
+        
+    def update(self, token: str, expiry_time: float):
+        self._token = token
+        self.expiry_time = expiry_time
 
 def authenticate(kronos_endpoint):
     """Makes a call to the login endpoint to authenticate to UKG Workforce Ready and returns a token and expiry time
@@ -120,7 +131,7 @@ def refresh_token(kronos_endpoint, kronos_credentials):
         print("Refresh successful")
         token = refresh.json()["token"]
         expiry_time = time.time() + refresh.json()["ttl"]/1000
-    return kronos_credentials(token, expiry_time)
+    kronos_credentials = kronos_credentials.update(token, expiry_time)
 
 
 def check_token(kronos_endpoint, kronos_credentials):
@@ -139,7 +150,8 @@ def check_token(kronos_endpoint, kronos_credentials):
     # add "Authorization": f"Bearer {token}" to headers
     if time.time() > kronos_credentials.expiry_time:
         kronos_credentials = authenticate(kronos_endpoint)
+        kronos_credentials = kronos_credentials.update(kronos_credentials.token, kronos_credentials.expiry_time)
     if time.time() > _75_percent:
-        kronos_credentials = refresh_token(kronos_endpoint, kronos_credentials)
+        refresh_token(kronos_endpoint, kronos_credentials)
 
-    return kronos_credentials
+    

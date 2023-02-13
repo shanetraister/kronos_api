@@ -1,6 +1,5 @@
 import requests
-# how to import the function check_token from kronos_auth.py?
-from kronos_auth import check_token
+from authentication import check_token
 from xml import xmltodict
 import pandas as pd
 
@@ -17,7 +16,7 @@ def get_report_names(kronos_endpoint, kronos_credentials, type="Saved"):
     Returns:
         _type_: _description_
     """    
-    kronos_credentials = check_token(kronos_endpoint, kronos_credentials)
+    check_token(kronos_endpoint, kronos_credentials)
     assert type in ["All", "Saved"], "type must be either 'All' or 'Saved'"
     headers = {
         "Content-Type": "application/json",
@@ -47,7 +46,7 @@ def get_report_names(kronos_endpoint, kronos_credentials, type="Saved"):
 
 
 def get_report(kronos_endpoint, kronos_credentials, report_name, report_scope: str = "saved"):
-    kronos_credentials = check_token(kronos_endpoint, kronos_credentials)
+    check_token(kronos_endpoint, kronos_credentials)
     headers = {
         "Content-Type": "application/json",
         "Api-Key": kronos_credentials.api_key,
@@ -109,7 +108,7 @@ def get_report(kronos_endpoint, kronos_credentials, report_name, report_scope: s
 
 
 def get_report_metadata(kronos_endpoint, kronos_credentials, report_name):
-    kronos_credentials = check_token(kronos_endpoint, kronos_credentials)
+    check_token(kronos_endpoint, kronos_credentials)
     headers = {
         "Content-Type": "application/json",
         "Api-Key": kronos_credentials.api_key,
