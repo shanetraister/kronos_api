@@ -29,29 +29,39 @@ class kronos_endpoint:
             base_url (str): Your Kronos API endpoint, typically something like 'https://prefix.saashr.com/ta/rest/'
             api_key (str): Found in your account settings, your alphanumeric API key
             username (str): The username of your Kronos account or service account
-            password (_type_): The password assigned to the username's account
+            password (str): The password assigned to the username's account
             company (str): Your company short name, found in account settings or your original url
         """
         self.base_url = base_url
-        self._api_key = api_key.lower()
+        self.api_key = api_key.lower()
         self.username = username.lower()
-        self._password = password
+        self.password = password
         self.company = company
+    
+    def print(self):
+        print(f"Your endpoint is defined as:")
+        print(f"Base URL: {self.base_url}")
+        print(f"Company Short Name: {self.company}")
+        print(f"Username: {self.username}")
+        # for the API key, print the first 4 characters and the last 4 characters, with the middle characters replaced with asterisks
+        print(f"API Key: {self.api_key[:4]}****{self.api_key[-4:]}")
+        # for password, print asterisks and then the last 4 characters
+        print(f"Password: ****{self.password[-4:]}")
 
 class kronos_credentials:
     def __init__(self, token: str, expiry_time: float):
-        self._token = token
+        self.token = token
         self.expiry_time = expiry_time
     
     def print(self):
-        print(f"Token: {self._token}, Expiry Time: {self.expiry_time}")
+        print(f"Token: {self.token}, Expiry Time: {self.expiry_time}")
         
     def create_blank(self):
         self.token = ""
         self.expiry_time = 0
         
     def update(self, token: str, expiry_time: float):
-        self._token = token
+        self.token = token
         self.expiry_time = expiry_time
 
 def authenticate(kronos_endpoint):

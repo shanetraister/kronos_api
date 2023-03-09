@@ -1,9 +1,8 @@
 import requests
-from authentication import check_token
-from xml import xmltodict
+from kronos_api.authentication import check_token
+import xmltodict
 import pandas as pd
 
-# Do I need to require parameters like base_url, token, etc... if they're used in the function but defined globally?
 
 def get_report_names(kronos_endpoint, kronos_credentials, type="Saved"):
     """A function to get the names of reports, either all reports or saved
@@ -20,7 +19,7 @@ def get_report_names(kronos_endpoint, kronos_credentials, type="Saved"):
     assert type in ["All", "Saved"], "type must be either 'All' or 'Saved'"
     headers = {
         "Content-Type": "application/json",
-        "Api-Key": kronos_credentials.api_key,
+        "Api-Key": kronos_endpoint.api_key,
         "Authorization": f"Bearer {kronos_credentials.token}",
         "Accept": "application/json",
         }
@@ -33,25 +32,26 @@ def get_report_names(kronos_endpoint, kronos_credentials, type="Saved"):
     url = kronos_endpoint.base_url + "v1/reports"
 
     reports = requests.get(url, headers=headers, params=params)
-    all_reports = "Nothing's here"
     print(f"Getting {type} report names")
     if reports.status_code != 200:
         print(f"Status Code: {reports.status_code}")
         print(reports.content)
         print("Report failed")
     else:
-        all_reports = reports
-        print(f"Found {len(all_reports.json())} reports")
-        return all_reports
+        reports_json = reports.json()
+        reports_df = pd.DataFrame(reports_json['reports'])
+        num_reports = len(reports_df)
+        print(f"Found {num_reports} reports")
+        return reports_df
 
 
 def get_report(kronos_endpoint, kronos_credentials, report_name, report_scope: str = "saved"):
     check_token(kronos_endpoint, kronos_credentials)
     headers = {
         "Content-Type": "application/json",
-        "Api-Key": kronos_credentials.api_key,
+        "Api-Key": kronos_endpoint.api_key,
         "Authorization": f"Bearer {kronos_credentials.token}",
-        "Accept": "application/json",
+        "Accept": "text/csv",
         }
     url = kronos_endpoint.base_url + "v1/report/" + report_scope + "/" + report_name
     
@@ -63,16 +63,16 @@ def get_report(kronos_endpoint, kronos_credentials, report_name, report_scope: s
         print(f"Failed to retrieve {report_name}")
     else:
         report = report.content
-        dict_data = xmltodict.parse(report)
-        body_data = dict_data["result"]["body"]
-        body = [x['col'] for x in body_data['row']]
+        # dict_data = xmltodict.parse(report)
+        # body_data = dict_data["result"]["body"]
+        # body = [x['col'] for x in body_data['row']]
 
-        header_data = dict_data["result"]["header"]
-        header = [x['label'] for x in header_data['col']]
+        # header_data = dict_data["result"]["header"]
+        # header = [x['label'] for x in header_data['col']]
         
-        df = pd.DataFrame(body, columns=header)
-        print(f"Retrieved {report_name}")
-        return report, df
+        # df = pd.DataFrame(body, columns=header)
+        # print(f"Retrieved {report_name}")
+        return report
 
 
 # TODO: Get this working
@@ -80,7 +80,7 @@ def get_report(kronos_endpoint, kronos_credentials, report_name, report_scope: s
 #     kronos_credentials = check_token(kronos_endpoint, kronos_credentials)
 #     headers = {
 #         "Content-Type": "application/json",
-#         "Api-Key": kronos_credentials.api_key,
+#         "Api-Key": kronos_endpoint.api_key,
 #         "Authorization": f"Bearer {kronos_credentials.token}",
 #         "Accept": "application/json",
 #         }
@@ -111,7 +111,7 @@ def get_report_metadata(kronos_endpoint, kronos_credentials, report_name):
     check_token(kronos_endpoint, kronos_credentials)
     headers = {
         "Content-Type": "application/json",
-        "Api-Key": kronos_credentials.api_key,
+        "Api-Key": kronos_endpoint.api_key,
         "Authorization": f"Bearer {kronos_credentials.token}",
         "Accept": "application/xml",
         }
