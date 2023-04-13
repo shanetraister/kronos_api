@@ -1,0 +1,111 @@
+TypeId,Label,FileType,Description
+183,ACA Employee Data,Excel,Import ACA employee history
+151,Account Hardware Custom Settings,Excel,"Import account custom settings per terminal (Example: access policy, grace in)"
+110,Accrual Balances,Excel,Remaining time off balances by category for each employee
+205,Accrual Schedule,Excel,Entries for Personal Accrual Schedule
+242,Additional Compensation History,Excel,Update or add additional compensation entry by date
+182,Asset Assignments,Excel,Import assets (property) assignments
+164,Assets,Excel,Import assets (property)
+252,Automatic Pay Grade Steps,Excel,Create the tables for the automatic steps.
+156,Bank Account Transactions,Excel,Import bank account transactions. This import can be started from the list of transactions assosiated with the bank
+236,Bankruptcy Wizard Deductions,Excel,Add bankruptcy deduction entry by start and end date
+122,Base Compensation History,Excel,Update or add base compensation entry by date
+214,Benefit Coverage Rate Table,Excel,Import Benefit Plan Coverage Rate Table
+230,Benefit Plan Feature,Excel,Import Benefit Plan Feature
+231,Benefit Plan Premiums,Excel,Import Benefit Plan Premiums
+157,Benefit Plans,Excel,Import employee benefit plans
+233,Child Support Wizard Deductions,Excel,Add child support deduction entry by start and end date
+206,Company Settings,Excel,Import Company Settings
+186,Company Tax,Excel,Import company taxes
+194,Compensation Proposals,Excel,Import Compensation Proposals
+195,Compensation Proposals For Specific Worksheet,Excel,Import Compensation Proposals for specific worksheet. This import can be started from worksheet page.
+185,Cost Center Lists,Excel,Lists of cost centers
+106,Cost Centers (Extended Layout),Excel,"Unit to allocate time against, (Example: division, department, client, task)"
+105,Cost Centers (Standard Layout),Excel,"Unit to allocate time against, (Example: division, department, client, task)"
+107,Cost Centers (XML),XML,"Unit to allocate time against, (Example: division, department, client, task) (XML Format)"
+204,Counter Definitions,Excel,Import Counters Definitions
+197,Counters,Excel,Import Counters
+159,Courses/Certifications,Excel,Import Courses/Certifications
+235,Creditor Garnishment Wizard Deductions,Excel,Add creditor garnishment deduction entry by start and end date
+271,Delivery Policies,Excel,"Import Delivery Policies, Cover and Instruction Pages"
+193,Demographic Custom Fields,Excel,Import Demographic Custom Fields
+155,Education,Excel,Import employee education history
+152,Employee Credentials,Excel,Import employee credential (Example: drivers license)
+103,Employee Daily Schedules,Excel,Employee schedule for a day (Example: On 4/10/2004 employee is scheduled for 8 hours)
+104,Employee Daily Schedules (XML),XML,Employee schedule for a day (XML Format)
+125,Employee Direct Deposit Settings,Excel,Add direct deposit entry by start and end date
+201,Employee Effective Dated Badges,Excel,Import Employee Effective Dated Badges
+165,Employee Inventory Items,Excel,Import employee inventory items
+184,Employee Job Change History,Excel,Import Employee Job Change History
+162,Employee Managed Cost Centers,Excel,Import Employee Managed Cost Centers
+153,Employee Notes,Excel,Import employee notes
+126,Employee Payroll History,Excel,Import historical payroll data
+127,Employee Payroll History (Columnar),Excel,Import historical payroll data
+219,Employee Perspectives Points,Excel,Import Scorecard Points
+220,Employee Perspectives Scores,Excel,Import Scorecard Scores
+245,Employee Primary National ID,Excel,Update primary national ID type
+216,Employee Schedules (All),Excel,Employee Schedules import that can import both predefined schedules (Daily Rules) or On The Fly Schedules
+174,Employee Skills,Excel,Import Employee Skills
+150,Employee Tax Settings,Excel,Import Employee Tax Settings
+129,Employee Void Payroll History,Excel,Import historical void payroll data
+175,Employee Work Availability & Preferences,Excel,Import Employee Work Availability & Preferences
+100,Employees,Excel,"Personal information, profiles, and settings per record"
+209,Employees (XLSX),Excel 2007,"Personal information, profiles, and settings per record (XLSX Format)"
+101,Employees (XML),XML,"Personal information, profiles, and settings per record (XML Format)"
+160,Employees Contacts,Excel,Employee contacts per record
+176,Employees Contracts,Excel,Import Employees Contracts
+192,Entitlement,Excel,Import Entitlement
+128,External Payroll Data Upload,Excel,Import payroll data from an external system. (Example: T&A data)
+158,External Payroll Data Upload (Columnar),Excel,Import payroll data from an external system. (Example: T&A data)
+118,Extra Pay,Excel,Import Extra Pay
+241,Federal Levy Wizard Deductions,Excel,Add federal levy deduction entry by start and end date
+238,Federal Student Loan Wizard Deductions,Excel,Add federal student loan deduction entry by start and end date
+210,GL Account Descriptions,Excel,Import general ledger account descriptions
+178,GL Codes,Excel,Import general ledger codes
+181,Group Permissions,XML,Import Group Permissions
+212,Holiday Profiles,Excel,Import Holiday Profiles
+170,HR Custom Fields,Excel,Import HR custom fields
+163,Incidents,Excel,Import employee incidents
+166,Inventory Profile Fields,Excel,Import inventory profile fields
+180,Involuntary Deductions,Excel,Add involuntary deduction entry by start and end date
+272,Job Compensation,Excel 2007,Analytics Job Compensation
+202,Job Requisition Custom Fields,Excel,Import Job Requisition Custom Fields
+168,Jobs,Excel,Import jobs
+191,Leave Case Entries,Excel,Import Leave Case Entries
+190,Leave Cases,Excel,Import Leave Cases
+213,Leave Cases (v2),Excel,Import Leave Cases (v2)
+188,Lookup Lists,Excel,Import Lookup Lists
+179,On The Fly Schedule,Excel,On the fly schedule for an employee
+187,Pay Grades,Excel,Import Pay Grades
+251,Payroll Expected Amounts,Excel,Import Payroll Expected Amounts
+258,Payroll Expected Amounts (Columnar),Excel,Import Payroll Expected Amounts
+256,Payroll Export Codes,Excel,Create or Update Payroll Export Codes
+203,Performance Review,Excel,Import performance review
+169,Performance Review Competencies,Excel,Import performance review competencies
+161,Points,Excel,Import Employee Point History
+269,Pro Notification Settings,Excel,Import Pro Notification Settings
+208,Punch Code Lookup Tables,Excel,Import Punch Code Lookup Tables
+113,Rate Table,Excel,"Monetary rate assigned to an individual or a group based on specified criteria (Example: shift, cost center, project)"
+119,Raw Time Punches,Excel,Import Raw Time Punches
+111,Schedule Daily Rules,Excel,"Specific predefined work times, (Example: 8:00 - 5:30; 8:00 - 10:00 in time, 8 hours per day)"
+124,Scheduled Deduction,Excel,Add deduction entry by start and end date
+123,Scheduled Earning,Excel,Add earning entry by start and end date
+115,Skills,Excel,Import Skills
+239,State Levy Wizard Deductions,Excel,Add state levy deduction entry by start and end date
+240,State Student Loan Wizard Deductions,Excel,Add state student loan deduction entry by start and end date
+226,Succession Plans,Excel,Import employee succession plans
+207,Telephony Phones,Excel,Import A-Telephony Phones
+172,Termination Details,Excel,Import termination details
+171,Termination Reasons,Excel,Import termination reasons
+117,Time Adjustments,Excel,Import Time Adjustments
+116,Time Entries,Excel,Import Time Entries
+108,Time Off Categories,Excel,"Specific buckets used to apply time off against, (Example: sick, personal, vacation, jury duty)"
+120,Time Off Requests,Excel,Import Time Off Requests
+109,Time Off Taken,Excel,Hours already taken (or scheduled out) per employee
+154,Training/Certifications,Excel,Import employee training/certification
+189,Vehicles,Excel,Import Vehicles
+177,Vendor PR,Excel,Import vendors
+112,Work Schedule Cycle,Excel,Recurring work schedule cycles (Daily rules assigned to work days)
+222,Work Schedule Cycle (XLSX),Excel 2007,Recurring work schedule cycles (Daily rules assigned to work days) (XLSX Format)
+246,Workday Breakdown Templates,Excel,Create or Update Workday Breakdown Templates
+167,Workers Claims,Excel,Import workers claims

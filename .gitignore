@@ -131,3 +131,5 @@ dmypy.json
 # secret configuration
 .ini
 /config/secrets.*
+
+.ipynb*
