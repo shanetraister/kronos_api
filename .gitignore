@@ -132,4 +132,7 @@ dmypy.json
 .ini
 /config/secrets.*
 
-.ipynb*
+.ipynb
+# any jupyter notebooks
+.ipynb_checkpoints
+exploration.ipynb
